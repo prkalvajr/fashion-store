@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation();       
-        previewModal.onOpen(data);
+        cart.addItem(data);
     }
 
     return ( 
