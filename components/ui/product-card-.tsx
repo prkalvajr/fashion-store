@@ -1,12 +1,12 @@
 "use client";
 
-import { MouseEventHandler } from "react";
+import { useEffect, useState, MouseEventHandler } from "react";
 import { Product } from "@/types";
 import Image from "next/image";
 import IconButton from "./icon-button";
 import { Expand, ShoppingCart } from "lucide-react";
 import Currency from "./currency";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 
@@ -17,9 +17,9 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({
     data,
 }) => {
+    const router = useRouter();    
     const previewModal = usePreviewModal();
     const cart = useCart();
-    const router = useRouter();
 
     const handleClick = () => {
         router.push(`/product/${data?.id}`);
